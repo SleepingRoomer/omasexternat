@@ -1,0 +1,14 @@
+:root{
+--text-display-xl:800 clamp(40px,6vw,72px)/1.04 var(--font-display);
+--text-display-lg:800 clamp(32px,4.5vw,56px)/1.08 var(--font-display);
+--text-display-md:700 32px/1.12 var(--font-display);
+--text-heading-lg:700 26px/1.2 var(--font-display);
+--text-heading-md:600 21px/1.3 var(--font-display);
+--text-heading-sm:600 17px/1.35 var(--font-display);
+--text-body-lg:400 18px/1.55 var(--font-body);
+--text-body-md:400 16px/1.55 var(--font-body);
+--text-body-sm:400 14px/1.5 var(--font-body);
+--text-caption:600 12px/1.4 var(--font-body);
+--tracking-caption:.06em;
+--tracking-display:-0.01em;
+}

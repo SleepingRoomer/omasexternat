@@ -1,0 +1,12 @@
+:root{
+--radius-sm:10px;--radius-md:16px;--radius-lg:24px;--radius-xl:32px;--radius-pill:999px;
+--shadow-sm:0 2px 6px rgba(45,47,132,.12);
+--shadow-md:0 6px 16px rgba(45,47,132,.16);
+--shadow-lg:0 16px 36px rgba(45,47,132,.20);
+--shadow-sticker-sm:3px 3px 0 rgba(45,47,132,.4);
+--shadow-sticker-md:5px 5px 0 rgba(45,47,132,.4);
+--shadow-sticker-teal:5px 5px 0 rgba(0,132,127,.4);
+--ease-bounce:cubic-bezier(.34,1.56,.64,1);/* @kind other */
+--ease-standard:cubic-bezier(.4,0,.2,1);/* @kind other */
+--duration-fast:120ms;/* @kind other */--duration-base:200ms;/* @kind other */--duration-slow:320ms;/* @kind other */
+}

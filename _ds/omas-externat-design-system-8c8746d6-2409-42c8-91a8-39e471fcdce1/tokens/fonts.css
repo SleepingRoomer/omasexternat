@@ -1,0 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Karla:wght@400;500;600;700&display=swap');
+:root{
+--font-display:'Poppins',system-ui,sans-serif;
+--font-body:'Karla',system-ui,sans-serif;
+}

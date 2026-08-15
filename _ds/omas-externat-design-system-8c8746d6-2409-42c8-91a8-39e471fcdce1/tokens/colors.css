@@ -1,0 +1,15 @@
+:root{
+--indigo-50:#EEEDFA;--indigo-100:#D9D7F4;--indigo-200:#B6B3E9;--indigo-300:#8D89D9;--indigo-400:#6763BE;--indigo-500:#4A469E;--indigo-600:#2D2F84;--indigo-700:#232569;--indigo-800:#1A1B4E;--indigo-900:#121337;
+--teal-50:#E3FBF7;--teal-100:#B9F3EA;--teal-200:#8AE9DC;--teal-300:#55D8C7;--teal-400:#2CC7B8;--teal-500:#00A09A;--teal-600:#00847F;--teal-700:#016B67;--teal-800:#075550;--teal-900:#0A3E3C;
+--sun-50:#FFF8E6;--sun-100:#FFEDBF;--sun-200:#FFDD8A;--sun-300:#FFC94A;--sun-400:#F5B22C;--sun-500:#E89A0F;--sun-600:#C77E08;--sun-700:#9C620A;
+--coral-50:#FFEEE9;--coral-100:#FFD3C7;--coral-200:#FFAD97;--coral-300:#FF8467;--coral-400:#F2603E;--coral-500:#DB4726;--coral-600:#B6371B;--coral-700:#8C2A15;
+--ink-950:#14152A;--ink-900:#1D1E3A;--ink-800:#2A2C4D;--ink-700:#3E4066;--ink-600:#565883;--ink-500:#74769E;--ink-400:#9C9DBC;--ink-300:#C3C4D9;--ink-200:#DEDFEC;--ink-100:#EEEEF6;--ink-50:#F7F7FB;
+--white:#FFFFFF;
+--brand-primary:var(--indigo-600);--brand-primary-hover:var(--indigo-700);--brand-secondary:var(--teal-500);--brand-secondary-hover:var(--teal-600);
+--accent-warm:var(--sun-300);--accent-hot:var(--coral-400);
+--surface-page:var(--ink-50);--surface-card:var(--white);--surface-sunken:var(--ink-100);--surface-inverse:var(--indigo-800);--surface-brand:var(--indigo-600);--surface-brand-soft:var(--indigo-50);--surface-teal-soft:var(--teal-50);
+--text-primary:var(--ink-900);--text-secondary:var(--ink-600);--text-muted:var(--ink-500);--text-inverse:var(--white);--text-brand:var(--indigo-600);--text-teal:var(--teal-700);
+--border-default:var(--ink-200);--border-strong:var(--ink-300);--border-brand:var(--indigo-300);
+--focus-ring:var(--teal-500);
+--success:var(--teal-600);--warning:var(--sun-500);--danger:var(--coral-500);--info:var(--indigo-400);
+}

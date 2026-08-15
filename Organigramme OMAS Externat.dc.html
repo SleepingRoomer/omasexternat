@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/omas-externat-design-system-8c8746d6-2409-42c8-91a8-39e471fcdce1/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/omas-externat-design-system-8c8746d6-2409-42c8-91a8-39e471fcdce1/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/omas-externat-design-system-8c8746d6-2409-42c8-91a8-39e471fcdce1/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/omas-externat-design-system-8c8746d6-2409-42c8-91a8-39e471fcdce1/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/omas-externat-design-system-8c8746d6-2409-42c8-91a8-39e471fcdce1/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/omas-externat-design-system-8c8746d6-2409-42c8-91a8-39e471fcdce1/styles.css">
+  <script src="_ds/omas-externat-design-system-8c8746d6-2409-42c8-91a8-39e471fcdce1/_ds_bundle.js"></script>
+  <style>
+    body{margin:0;background:var(--surface-page);font-family:var(--font-body);}
+    a{color:var(--text-brand);} a:hover{color:var(--brand-primary-hover);}
+  </style>
+</helmet>
+
+<div style="min-height:100vh;background:var(--surface-page);padding:var(--space-10) var(--space-6) var(--space-20)">
+  <div style="max-width:1520px;margin:0 auto">
+
+    <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-2);text-align:center;margin-bottom:var(--space-6)">
+      <img src="assets/omas-externat-logo.png" alt="OMAS Externat" style="height:56px;width:auto;margin-bottom:var(--space-2)" />
+      <div style="font:var(--text-display-md);color:var(--ink-900);letter-spacing:var(--tracking-display)">Organigramme des pôles</div>
+      <div style="font:var(--text-body-md);color:var(--text-secondary)">OMAS Externat — répartition des missions par pôle</div>
+      <div style="margin-top:var(--space-4);display:flex;flex-wrap:wrap;justify-content:center;gap:var(--space-3)">
+        <div style="background:var(--surface-card);border:2px solid var(--border-default);border-radius:var(--radius-pill);padding:var(--space-2) var(--space-5);box-shadow:var(--shadow-sm)">
+          <x-import component-from-global-scope="OMASExternatDesignSystem_8c8746.Switch" checked="{{showDetails}}" onChange="{{toggleDetails}}" label="Afficher les missions" hint-size="auto,32px"></x-import>
+        </div>
+        <div style="background:var(--surface-card);border:2px solid var(--border-default);border-radius:var(--radius-pill);padding:var(--space-2) var(--space-5);box-shadow:var(--shadow-sm)">
+          <x-import component-from-global-scope="OMASExternatDesignSystem_8c8746.Switch" checked="{{showCount}}" onChange="{{toggleCount}}" label="Afficher le nombre de personnes" hint-size="auto,32px"></x-import>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0;margin-bottom:var(--space-2)">
+      <div style="width:2px;height:20px;background:var(--border-strong)"></div>
+      <div style="width:10px;height:10px;border-radius:50%;background:var(--border-strong)"></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:28px;align-items:start">
+
+      <!-- POLE ECOS -->
+      <div style="min-width:0;background:var(--surface-brand-soft);border:2px solid var(--indigo-200);border-radius:var(--radius-xl);padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-4)">
+        <div style="box-sizing:border-box;align-self:stretch;min-height:76px;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--indigo-600);color:var(--white);font:600 15px/1.25 var(--font-display);padding:8px 10px;border-radius:var(--radius-lg);box-shadow:var(--shadow-sticker-sm)">Pôle ECOS</div>
+        <div style="display:flex;gap:var(--space-4);flex-wrap:wrap">
+
+          <div style="flex:1.3;min-width:180px;background:var(--white);border:2px solid var(--indigo-100);border-radius:var(--radius-md);padding:var(--space-4);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:var(--space-1)">
+            <div style="font:var(--text-heading-sm);color:var(--indigo-700);margin-bottom:var(--space-2)">ECOS Blancs</div>
+            <sc-if value="{{showDetails}}" hint-placeholder-val="{{true}}">
+              <sc-for list="{{ecosBlancsRoles}}" as="role" hint-placeholder-count="9">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:4px 0">
+                  <span style="font:var(--text-body-sm);color:var(--text-primary)">{{role.name}}</span>
+                  <sc-if value="{{role.showBadge}}" hint-placeholder-val="{{false}}">
+                    <x-import component-from-global-scope="OMASExternatDesignSystem_8c8746.Badge" tone="brand" hint-size="auto,22px">{{role.count}}</x-import>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </sc-if>
+          </div>
+
+          <div style="flex:1;min-width:170px;background:var(--white);border:2px solid var(--indigo-100);border-radius:var(--radius-md);padding:var(--space-4);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:var(--space-1)">
+            <div style="font:var(--text-heading-sm);color:var(--indigo-700);margin-bottom:var(--space-2)">Journée Procédure</div>
+            <sc-if value="{{showDetails}}" hint-placeholder-val="{{true}}">
+              <sc-for list="{{journeeProcedureRoles}}" as="role" hint-placeholder-count="4">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:4px 0">
+                  <span style="font:var(--text-body-sm);color:var(--text-primary)">{{role.name}}</span>
+                  <sc-if value="{{role.showBadge}}" hint-placeholder-val="{{false}}">
+                    <x-import component-from-global-scope="OMASExternatDesignSystem_8c8746.Badge" tone="brand" hint-size="auto,22px">{{role.count}}</x-import>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </sc-if>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- POLE CONF'OMAS -->
+      <div style="min-width:0;background:var(--surface-teal-soft);border:2px solid var(--teal-200);border-radius:var(--radius-xl);padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-4)">
+        <div style="box-sizing:border-box;align-self:stretch;min-height:76px;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--teal-600);color:var(--white);font:600 15px/1.25 var(--font-display);padding:8px 10px;border-radius:var(--radius-lg);box-shadow:var(--shadow-sticker-teal)">Pôle Conf'OMAS</div>
+
+        <div style="background:var(--white);border:2px solid var(--teal-100);border-radius:var(--radius-md);padding:var(--space-3) var(--space-4);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:var(--space-1)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+            <span style="font:var(--text-heading-sm);color:var(--ink-900)">Conf'Methodo</span>
+            <sc-if value="{{showCount}}" hint-placeholder-val="{{false}}">
+              <x-import component-from-global-scope="OMASExternatDesignSystem_8c8746.Badge" tone="teal" hint-size="auto,22px">1-2</x-import>
+            </sc-if>
+          </div>
+          <sc-if value="{{showDetails}}" hint-placeholder-val="{{true}}">
+            <div style="margin-top:var(--space-1)">
+              <sc-for list="{{confMethodoDetails}}" as="d" hint-placeholder-count="4">
+                <div style="display:flex;align-items:flex-start;gap:8px;padding:3px 0">
+                  <span style="width:5px;height:5px;border-radius:50%;background:var(--teal-400);margin-top:7px;flex-shrink:0"></span>
+                  <span style="font:var(--text-body-sm);color:var(--text-secondary)">{{d}}</span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+
+        <div style="background:var(--white);border:2px solid var(--teal-100);border-radius:var(--radius-md);padding:var(--space-3) var(--space-4);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:var(--space-1)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+            <span style="font:var(--text-heading-sm);color:var(--ink-900)">Conf'EDN</span>
+            <sc-if value="{{showCount}}" hint-placeholder-val="{{false}}">
+              <x-import component-from-global-scope="OMASExternatDesignSystem_8c8746.Badge" tone="teal" hint-size="auto,22px">2-3</x-import>
+            </sc-if>
+          </div>
+          <sc-if value="{{showDetails}}" hint-placeholder-val="{{true}}">
+            <div style="margin-top:var(--space-1)">
+              <sc-for list="{{confEdnDetails}}" as="d" hint-placeholder-count="1">
+                <div style="display:flex;align-items:flex-start;gap:8px;padding:3px 0">
+                  <span style="width:5px;height:5px;border-radius:50%;background:var(--teal-400);margin-top:7px;flex-shrink:0"></span>
+                  <span style="font:var(--text-body-sm);color:var(--text-secondary)">{{d}}</span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+
+        <div style="background:var(--white);border:2px solid var(--teal-100);border-radius:var(--radius-md);padding:var(--space-4);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:var(--space-1)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+            <span style="font:var(--text-heading-sm);color:var(--ink-900)">Logistique</span>
+            <sc-if value="{{showCount}}" hint-placeholder-val="{{false}}">
+              <x-import component-from-global-scope="OMASExternatDesignSystem_8c8746.Badge" tone="teal" hint-size="auto,22px">1-2</x-import>
+            </sc-if>
+          </div>
+          <sc-if value="{{showDetails}}" hint-placeholder-val="{{true}}">
+            <div style="margin-top:var(--space-1)">
+              <div style="font:var(--text-caption);letter-spacing:var(--tracking-caption);color:var(--text-muted);text-transform:uppercase;margin-bottom:var(--space-1)">répartition à définir</div>
+              <sc-for list="{{confLogistiqueRoles}}" as="d" hint-placeholder-count="2">
+                <div style="display:flex;align-items:flex-start;gap:8px;padding:3px 0">
+                  <span style="width:5px;height:5px;border-radius:50%;background:var(--teal-400);margin-top:7px;flex-shrink:0"></span>
+                  <span style="font:var(--text-body-sm);color:var(--text-secondary)">{{d}}</span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+
+      <!-- POLE DISCORD -->
+      <div style="min-width:0;background:var(--coral-50);border:2px solid var(--coral-200);border-radius:var(--radius-xl);padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-4)">
+        <div style="box-sizing:border-box;align-self:stretch;min-height:76px;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--coral-400);color:var(--white);font:600 15px/1.25 var(--font-display);padding:8px 10px;border-radius:var(--radius-lg);box-shadow:var(--shadow-sticker-sm)">Pôle Discord</div>
+
+        <div style="background:var(--white);border:2px solid var(--coral-100);border-radius:var(--radius-md);padding:var(--space-3) var(--space-4);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:var(--space-1)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+            <span style="font:var(--text-heading-sm);color:var(--ink-900)">LCA</span>
+            <sc-if value="{{showCount}}" hint-placeholder-val="{{false}}">
+              <x-import component-from-global-scope="OMASExternatDesignSystem_8c8746.Badge" tone="danger" hint-size="auto,22px">1-2</x-import>
+            </sc-if>
+          </div>
+          <sc-if value="{{showDetails}}" hint-placeholder-val="{{true}}">
+            <div style="margin-top:var(--space-1)">
+              <sc-for list="{{lcaDetails}}" as="d" hint-placeholder-count="1">
+                <div style="display:flex;align-items:flex-start;gap:8px;padding:3px 0">
+                  <span style="width:5px;height:5px;border-radius:50%;background:var(--coral-300);margin-top:7px;flex-shrink:0"></span>
+                  <span style="font:var(--text-body-sm);color:var(--text-secondary)">{{d}}</span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+
+        <div style="background:var(--white);border:2px solid var(--coral-100);border-radius:var(--radius-md);padding:var(--space-3) var(--space-4);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:var(--space-1)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+            <span style="font:var(--text-heading-sm);color:var(--ink-900)">Question Hebdo'</span>
+            <sc-if value="{{showCount}}" hint-placeholder-val="{{false}}">
+              <x-import component-from-global-scope="OMASExternatDesignSystem_8c8746.Badge" tone="danger" hint-size="auto,22px">1-2</x-import>
+            </sc-if>
+          </div>
+          <sc-if value="{{showDetails}}" hint-placeholder-val="{{true}}">
+            <div style="margin-top:var(--space-1)">
+              <sc-for list="{{questionHebdoDetails}}" as="d" hint-placeholder-count="3">
+                <div style="display:flex;align-items:flex-start;gap:8px;padding:3px 0">
+                  <span style="width:5px;height:5px;border-radius:50%;background:var(--coral-300);margin-top:7px;flex-shrink:0"></span>
+                  <span style="font:var(--text-body-sm);color:var(--text-secondary)">{{d}}</span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+
+        <div style="background:var(--white);border:2px solid var(--coral-100);border-radius:var(--radius-md);padding:var(--space-3) var(--space-4);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:var(--space-1)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+            <span style="font:var(--text-heading-sm);color:var(--ink-900)">Vie du Discord</span>
+            <sc-if value="{{showCount}}" hint-placeholder-val="{{false}}">
+              <x-import component-from-global-scope="OMASExternatDesignSystem_8c8746.Badge" tone="danger" hint-size="auto,22px">1-2</x-import>
+            </sc-if>
+          </div>
+          <sc-if value="{{showDetails}}" hint-placeholder-val="{{true}}">
+            <div style="margin-top:var(--space-1)">
+              <sc-for list="{{vieDiscordDetails}}" as="d" hint-placeholder-count="2">
+                <div style="display:flex;align-items:flex-start;gap:8px;padding:3px 0">
+                  <span style="width:5px;height:5px;border-radius:50%;background:var(--coral-300);margin-top:7px;flex-shrink:0"></span>
+                  <span style="font:var(--text-body-sm);color:var(--text-secondary)">{{d}}</span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+
+      <!-- POLE SECRETARIAT -->
+      <div style="min-width:0;background:var(--sun-50);border:2px solid var(--sun-200);border-radius:var(--radius-xl);padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-4)">
+        <div style="box-sizing:border-box;align-self:stretch;min-height:76px;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--sun-300);color:var(--ink-900);font:600 15px/1.25 var(--font-display);padding:8px 10px;border-radius:var(--radius-lg);box-shadow:var(--shadow-sticker-sm)">Pôle Secrétariat &amp; Com.</div>
+
+        <div style="background:var(--white);border:2px solid var(--sun-100);border-radius:var(--radius-md);padding:var(--space-3) var(--space-4);box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <span style="font:var(--text-heading-sm);color:var(--ink-900)">Mail</span>
+          <sc-if value="{{showCount}}" hint-placeholder-val="{{false}}">
+            <x-import component-from-global-scope="OMASExternatDesignSystem_8c8746.Badge" tone="warning" hint-size="auto,22px">1</x-import>
+          </sc-if>
+        </div>
+
+        <div style="background:var(--white);border:2px solid var(--sun-100);border-radius:var(--radius-md);padding:var(--space-3) var(--space-4);box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <span style="font:var(--text-heading-sm);color:var(--ink-900)">Communication</span>
+          <sc-if value="{{showCount}}" hint-placeholder-val="{{false}}">
+            <x-import component-from-global-scope="OMASExternatDesignSystem_8c8746.Badge" tone="warning" hint-size="auto,22px">1</x-import>
+          </sc-if>
+        </div>
+
+        <div style="background:var(--white);border:2px solid var(--sun-100);border-radius:var(--radius-md);padding:var(--space-3) var(--space-4);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:var(--space-1)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+            <span style="font:var(--text-heading-sm);color:var(--ink-900)">Trésorerie</span>
+            <sc-if value="{{showCount}}" hint-placeholder-val="{{false}}">
+              <x-import component-from-global-scope="OMASExternatDesignSystem_8c8746.Badge" tone="warning" hint-size="auto,22px">1</x-import>
+            </sc-if>
+          </div>
+          <sc-if value="{{showDetails}}" hint-placeholder-val="{{true}}">
+            <div style="margin-top:var(--space-1)">
+              <sc-for list="{{tresorerieDetails}}" as="d" hint-placeholder-count="1">
+                <div style="display:flex;align-items:flex-start;gap:8px;padding:3px 0">
+                  <span style="width:5px;height:5px;border-radius:50%;background:var(--sun-500);margin-top:7px;flex-shrink:0"></span>
+                  <span style="font:var(--text-body-sm);color:var(--text-secondary)">{{d}}</span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showDetails&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Affichage&quot;}, &quot;showCount&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: false, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Affichage&quot;}}">
+class Component extends DCLogic {
+  state = {
+    showCount: this.props.showCount ?? false,
+    showDetails: this.props.showDetails ?? true,
+  };
+
+  renderVals() {
+    const on = this.state.showCount;
+    const withBadge = (list) => list.map(r => ({ ...r, showBadge: !!r.count && on }));
+
+    return {
+      showCount: on,
+      showDetails: this.state.showDetails,
+      toggleCount: () => this.setState(s => ({ showCount: !s.showCount })),
+      toggleDetails: () => this.setState(s => ({ showDetails: !s.showDetails })),
+
+      ecosBlancsRoles: withBadge([
+        { name: "Gestion rédaction", count: "2-3" },
+        { name: "Équipe relecture", count: "5" },
+        { name: "Gestion des évaluateurs", count: "3" },
+        { name: "Gestion PS / PSS", count: "1" },
+        { name: "Gestion des étudiants", count: "1" },
+        { name: "Gestion repas", count: "1" },
+        { name: "Gestion salles / logistique", count: "1" },
+        { name: "Gestion plateforme d'évaluation", count: null },
+        { name: "Gestion délocalisation ECOS", count: null },
+      ]),
+      journeeProcedureRoles: withBadge([
+        { name: "Gestion fiche procédure", count: "1" },
+        { name: "Gestion des évaluateurs", count: "1" },
+        { name: "Gestion des étudiants", count: "1" },
+        { name: "Gestion logistique (salle, repas, mannequin)", count: "2-3" },
+      ]),
+
+      confMethodoDetails: [
+        "Conf'Methodo Externat/EDN",
+        "Conf'Methodo Ramadan",
+        "Conf'Methodo Révisions Été D3",
+        "Conf'Méthodo ECOS 1 et 2",
+      ],
+      confEdnDetails: [
+        "Conf'OMAS de spécialité (cardiologie, neurologie, etc.)",
+      ],
+      confLogistiqueRoles: [
+        "Gestion zoom et animation",
+        "Gestion billetterie et participants",
+      ],
+
+      lcaDetails: [
+        "Qahwa LCA (rencontre hebdomadaire et gestion des questions)",
+      ],
+      questionHebdoDetails: [
+        "Rédaction",
+        "Relecture",
+        "Publication",
+      ],
+      vieDiscordDetails: [
+        "Réponse aux questions",
+        "Gestion des utilisateurs",
+      ],
+
+      tresorerieDetails: [
+        "Achats, budgets, bilans",
+      ],
+    };
+  }
+}
+
+</script>
+</body>
+</html>
